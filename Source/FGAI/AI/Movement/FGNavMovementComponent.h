@@ -5,15 +5,14 @@
 
 class APawn;
 
-
-UCLASS(Blueprintable)
+UCLASS()
 class UFGNavMovementComponent : public UPawnMovementComponent
 {
 	GENERATED_BODY()
 public:
 	UFGNavMovementComponent();
-	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType,
-	                           FActorComponentTickFunction* ThisTickFunction) override;
+
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
 	virtual void RequestPathMove(const FVector& MoveInput) override;
@@ -27,16 +26,12 @@ public:
 	UFUNCTION(BlueprintPure)
 	bool IsMoving() const;
 
-	UFUNCTION(BlueprintCallable)
-	void SetMovementSpeed(float NewSpeed);
-
-	UFUNCTION(BlueprintCallable)
-	float GetMovementSpeed();
-
 	FVector RequestedVelocity = FVector::ZeroVector;
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = Movement)
+	UPROPERTY(EditAnywhere, Category = Movement)
 	float MovementSpeed = 400.0f;
 
 	bool bHasRequestedVelocity = false;
+
+
 };

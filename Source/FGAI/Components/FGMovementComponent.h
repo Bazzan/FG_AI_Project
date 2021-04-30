@@ -24,8 +24,6 @@ public:
 	void SetFacingRotation(const FQuat& InFacingRotation, float InRotationSpeed = -1.0f);
 	void SetFacingDirection(const FVector& InFacingDirection, float InRotationSpeed = -1.0f);
 
-
-	
 private:
 	void Internal_SetFacingRotation(const FRotator& InFacingRotation, float InRotationSpeed);
 	FVector GetMovementDelta(const FFGFrameMovement& FrameMovement) const;

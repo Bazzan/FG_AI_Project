@@ -26,11 +26,9 @@ struct FFGFrameMovement
 
 	FVector GetStartLocation() const { return StartLocation; }
 	FVector GetGravity() const { return FVector(0.0f, 0.0f, AccumulatedGravity); }
-	FVector Jump() const {return FVector(0.0f,0.0f,JumpVector);}
+
 private:
 	FVector MovementDelta = FVector::ZeroVector;
 	FVector StartLocation = FVector::ZeroVector;
 	float AccumulatedGravity = 0.0f;
-	float JumpVector;
 };
-

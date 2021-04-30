@@ -23,7 +23,7 @@ public:
 	UPROPERTY(VisibleDefaultsOnly, Category = Vision)
 	UFGVisionSensingComponent* VisionSensingComponent;
 
-	UPROPERTY(BlueprintReadWrite, Category = Movement)
+	UPROPERTY(VisibleDefaultsOnly, Category = Movement)
 	UFGNavMovementComponent* NavMovementComponent;
 
 	AFGEnemy();

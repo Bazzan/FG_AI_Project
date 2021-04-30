@@ -1,6 +1,5 @@
 #pragma once
 
-#include "AI/ThrowComponent.h"
 #include "GameFramework/Pawn.h"
 #include "FGCharacter.generated.h"
 
@@ -24,8 +23,6 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = Movement)
 	UFGMovementComponent* MovementComponent;
 
-
-	
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
@@ -39,8 +36,6 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
-	
-
 
 	virtual void Tick(float DeltaTime) override;
 
@@ -55,17 +50,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category = Movement)
 	float Gravity;
 
-	UPROPERTY(EditAnywhere, Category = Movement)
-	float JumpHeight;
-
-	float bJump;
-	FVector JumpVector;
-	float bIsCrouching = false;
-	
 	FVector InputVector = FVector::ZeroVector;
 	FVector LookVector = FVector::ZeroVector;
 
-	UThrowComponent* throwComponent;
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
 
@@ -76,9 +63,7 @@ protected:
 	void LookUpAtRate(float Rate);
 
 	void OnFire();
-	void OnJump();
-	void OnChrouch();
-
+	
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
@@ -88,4 +73,6 @@ public:
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
 	UCapsuleComponent* GetCapsule() const { return Capsule; }
+
 };
+

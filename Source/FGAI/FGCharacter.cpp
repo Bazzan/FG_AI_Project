@@ -6,11 +6,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/FGMovementComponent.h"
 #include "FGMovementStatics.h"
-#include "AI/ThrowComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
-#include "AI/ThrowComponent.h"
-
-class UThrowComponent;
 
 AFGCharacter::AFGCharacter()
 {
@@ -53,54 +49,35 @@ AFGCharacter::AFGCharacter()
 void AFGCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+		
 	FFGFrameMovement FrameMovement = MovementComponent->CreateFrameMovement();
-
-	if (JumpVector.Z > 0.01f)
-	{
-		FrameMovement.AddGravity(-JumpVector.Z * DeltaTime);
-		JumpVector.Z *= 0.9f - DeltaTime;
-	}
-
+	
 	FrameMovement.AddGravity(Gravity * DeltaTime);
-
 
 	if (!InputVector.IsNearlyZero())
 	{
-		FVector Forward =
-			FVector::VectorPlaneProject(FirstPersonCameraComponent->GetForwardVector(), FVector::UpVector);
+		FVector Forward = FVector::VectorPlaneProject(FirstPersonCameraComponent->GetForwardVector(), FVector::UpVector);
 		FVector ForwardMovement = Forward * InputVector.X;
 		FVector Right = FirstPersonCameraComponent->GetRightVector() * InputVector.Y;
 		FVector Velocity = (ForwardMovement + Right).GetSafeNormal() * Speed * DeltaTime;
-		if (bJump)
-		{
-			Velocity.Z += JumpHeight * DeltaTime;
-			bJump = false;
-		}
-
-
 		FrameMovement.AddDelta(Velocity);
 	}
-
-
+	
 	MovementComponent->Move(FrameMovement);
 }
 
 void AFGCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	throwComponent = Cast<UThrowComponent>(
-		GetComponentByClass(TSubclassOf<UThrowComponent>(UThrowComponent::StaticClass())));
+
 }
 
 void AFGCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	// set up gameplay key bindings
 	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AFGCharacter::OnFire);
 
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AFGCharacter::OnJump);
-	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &AFGCharacter::OnChrouch);
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AFGCharacter::OnFire);
 
 	// Bind movement events
 	PlayerInputComponent->BindAxis("MoveForward", this, &AFGCharacter::MoveForward);
@@ -112,33 +89,10 @@ void AFGCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 	PlayerInputComponent->BindAxis("LookUp", this, &AFGCharacter::LookUpAtRate);
 }
 
-void AFGCharacter::OnJump()
-{
-	JumpVector.Z = JumpHeight;
-}
-
-void AFGCharacter::OnChrouch()
-{
-	if (!bIsCrouching)
-	{
-		Capsule->SetCapsuleSize(Capsule->GetScaledCapsuleRadius() / 3, Capsule->GetScaledCapsuleHalfHeight() / 3);
-		bIsCrouching = true;
-		UE_LOG(LogTemp, Display, TEXT("Chrouch"))
-	}
-	else
-	{
-		Capsule->SetCapsuleSize(Capsule->GetScaledCapsuleRadius() * 3, Capsule->GetScaledCapsuleHalfHeight() * 3);
-		bIsCrouching = false;
-		UE_LOG(LogTemp, Display, TEXT("UN Chrouch"))
-	}
-}
-
-
 void AFGCharacter::OnFire()
 {
-	throwComponent->ThrowObject();
-}
 
+}
 
 void AFGCharacter::MoveForward(float Value)
 {

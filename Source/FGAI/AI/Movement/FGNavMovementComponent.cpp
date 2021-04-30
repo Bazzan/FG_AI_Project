@@ -96,13 +96,3 @@ bool UFGNavMovementComponent::IsMoving() const
 {
 	return bHasRequestedVelocity;
 }
-
-void UFGNavMovementComponent::SetMovementSpeed(float NewSpeed)
-{
-	MovementSpeed = NewSpeed;
-}
-
-float UFGNavMovementComponent::GetMovementSpeed()
-{
-	return MovementSpeed;
-}
