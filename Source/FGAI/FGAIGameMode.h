@@ -10,9 +10,13 @@ UCLASS(minimalapi)
 class AFGAIGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
-
+protected:
+	virtual void BeginPlay() override;
 public:
 	AFGAIGameMode();
+
+	// UPROPERTY(VisibleAnywhere)
+	static TArray<AActor*> HearingActors; 
 };
 
 

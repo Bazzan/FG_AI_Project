@@ -17,6 +17,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/StateMachine/FGAIStateBase.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/FGAI/FGCharacter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/ThrowComponent.cpp" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Source/FGAI.Target.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/FGAIEditor.Target.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/FGAI/FGCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -38,9 +39,18 @@
     <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/FGVisionSensingTargetComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/FGVisionSensingComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/FGVisionSensingTargetComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/FGHearingSensingComponent.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/FGHearingSensingComponent.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/FGAI/FGAIGameMode.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/NoiseActor.h" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/NoiseComponent.h" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/FGVisionSensingComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/NoiseComponent.cpp" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/Sensing/NoiseActor.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/ThrowComponent.h" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/ThrowingObject.h" root0="SKIP_INSPECTION" />
     <setting file="file://F:/Unreal Engine/UE_4.26/Engine/Source/Runtime/Engine/Classes/Engine/Level.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/FGAI/AI/ThrowingObject.cpp" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -308,8 +318,7 @@
       <workItem from="1619771250412" duration="25000" />
       <workItem from="1619771316618" duration="1645000" />
       <workItem from="1619785659284" duration="5381000" />
-      <workItem from="1619791818453" duration="761000" />
-      <workItem from="1619792708541" duration="60000" />
+      <workItem from="1619791818453" duration="471000" />
     </task>
     <servers />
   </component>

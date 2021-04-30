@@ -13,4 +13,6 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Sensing)
 	float DistanceMinimum = 8000.0f;
+
+	
 };

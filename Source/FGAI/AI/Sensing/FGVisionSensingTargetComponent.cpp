@@ -10,6 +10,7 @@ void UFGVisionSensingTargetComponent::BeginPlay()
 	TargetsList.Add(this);
 }
 
+
 void UFGVisionSensingTargetComponent::OnComponentDestroyed(bool bDestroyingHierarchy)
 {
 	TargetsList.Remove(this);

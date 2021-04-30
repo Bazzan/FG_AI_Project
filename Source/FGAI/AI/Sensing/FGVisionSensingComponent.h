@@ -14,7 +14,17 @@ struct FFGVisionSensingResults
 public:
 	UPROPERTY(BlueprintReadOnly)
 	AActor* SensedActor = nullptr;
+
+	UPROPERTY(BlueprintReadOnly)
+	float VisionAngle;
+
+	UPROPERTY(BlueprintReadOnly)
+	float VisionDistance;
+	
+	UPROPERTY(EditAnywhere)
+	TEnumAsByte<ETraceTypeQuery> TraceType;
 };
+
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFGVisionSensingDelegate, const FFGVisionSensingResults&, Results);
 
@@ -25,6 +35,9 @@ class UFGVisionSensingComponent : public UActorComponent
 public:
 	UFGVisionSensingComponent();
 
+	UPROPERTY(EditAnywhere)
+	TEnumAsByte<ETraceTypeQuery> TraceType;
+
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	bool IsPointVisible(const FVector& PointToTest, const FVector& Origin, const FVector& Direction, float DistanceMinimum) const;
@@ -32,6 +45,7 @@ public:
 	UPROPERTY(Transient)
 	TArray<UFGVisionSensingTargetComponent*> SensedTargets;
 
+	
 	float GetVisionInRadians() const;
 
 	UPROPERTY(BlueprintAssignable)
